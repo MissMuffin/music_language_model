@@ -1,8 +1,6 @@
 import os
 import shutil
-
-data_raw = "data"
-data_processed = "processed_data"
+from util_midi import *
 
 
 def clear_folder(fpath):
@@ -15,7 +13,7 @@ def clear_folder(fpath):
         except Exception as e:
             print(e)
 
-def create_folders():
+def create_folders(data_raw, data_processed):
     # create processed data dir
     if not os.path.exists(data_processed):
         os.makedirs(data_processed)
@@ -25,9 +23,8 @@ def create_folders():
     # for each folder in data create folder with same name in processed data
     datasets = os.listdir(data_raw)
     for dataset in datasets:
-        
-        folder_processed = f"{data_processed}/{folder}"
-        os.makedirs(folder_processed)
+
+        folder_processed = f"{data_processed}/{dataset}"
 
         # create notewise and chordwise dirs with test, train, valid in each
         notewise = f"{folder_processed}/notewise"
@@ -41,16 +38,29 @@ def create_folders():
         os.makedirs(f"{chordwise}/test")
         os.makedirs(f"{chordwise}/valid")
 
-for dataset in os.listdir(data_raw):
-    # we assume a dataset always has only train, test, valid folders
-    dataset_path = f"{data_raw}/{dataset}"
-    for folder in os.listdir(dataset_path):
-        folder_path = f"{dataset_path}/{folder}"
-        for fname in os.listdir(folder_path):
-            file_path = f"{folder_path}/{fname}"
-            # TODO do things here
-            print(file_path)
+def encode_data(data_raw):
+    # TODO add progress bar
+    for dataset in os.listdir(data_raw):
+        # we assume a dataset always has only train, test, valid folders
+        dataset_path = f"{data_raw}/{dataset}"
+        for folder in os.listdir(dataset_path):
+            folder_path = f"{dataset_path}/{folder}"
+            for fname in os.listdir(folder_path):
+                file_path = f"{folder_path}/{fname}"
 
+                fname = os.path.splitext(fname)[0]
+                chords, notes = translate_piece(file_path)
+                with open(f"{data_processed}/{dataset}/chordwise/{folder}/{fname}.txt", "w") as fn:
+                    fn.write(chords)
+                with open(f"{data_processed}/{dataset}/notewise/{folder}/{fname}.txt", "w") as fn:
+                    fn.write(notes)
 
-# if __name__ == "__main__":
-    # create_folders()
+if __name__ == "__main__":
+
+    data_raw = "data"
+    data_processed = "processed_data"
+
+    create_folders(data_raw, data_processed)
+    encode_data(data_raw)
+
+    print("All files encoded")
