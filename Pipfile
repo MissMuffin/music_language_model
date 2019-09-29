@@ -11,6 +11,8 @@ rope = "*"
 music21 = "*"
 numpy = "*"
 pyknon = "*"
+matplotlib = "*"
+scipy = "*"
 
 [requires]
 python_version = "3.7"
