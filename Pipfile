@@ -5,7 +5,6 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
-rope = "*"
 
 [packages]
 music21 = "*"
@@ -13,6 +12,7 @@ numpy = "*"
 pyknon = "*"
 matplotlib = "*"
 scipy = "*"
+fastai = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
