@@ -133,8 +133,7 @@ def chord_to_notewise(score_string_arr, sample_freq):
                 translated_list.append("end" + note)
         if prefix == "p":
             translated_list.append("wait")
-
-    # condense waits to wait#
+            
     i = 0
     translated_string = ""
     while i < len(translated_list):
@@ -293,7 +292,8 @@ def translate_piece(fname):
 
     midi_stream = get_stream(fname)
     chords_string = stream_to_chordwise(midi_stream, chamber, sample_freq, note_offset, note_range)
-    notes_string = chord_to_notewise(chords_string, sample_freq)
+    chords_string_arr = chords_string.split(" ")
+    notes_string = chord_to_notewise(chords_string_arr, sample_freq)
 
     # differentiate rests
     chords_string_modified = modify_chord_rests(chords_string)
