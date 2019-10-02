@@ -50,10 +50,16 @@ def encode_data(data_raw):
 
                 fname = os.path.splitext(fname)[0]
                 chords, notes = translate_piece(file_path)
-                with open(f"{data_processed}/{dataset}/chordwise/{folder}/{fname}.txt", "w") as fn:
-                    fn.write(chords)
-                with open(f"{data_processed}/{dataset}/notewise/{folder}/{fname}.txt", "w") as fn:
-                    fn.write(notes)
+
+                for i, c in enumerate(chords):
+                    with open(f"{data_processed}/{dataset}/chordwise/{folder}/{fname}_{i}.txt", "w") as fn:
+                        fn.write(c)
+
+                for i, n in enumerate(notes):
+                    with open(f"{data_processed}/{dataset}/notewise/{folder}/{fname}_{i}.txt", "w") as fn:
+                        fn.write(n)
+
+                import sys; sys.exit()
 
 if __name__ == "__main__":
 

@@ -285,20 +285,29 @@ def translate_piece(fname):
     note_offsets[38]=45
     note_offsets[62]=33
 
-    sample_freq = sample_freqs[0] # 4
-    note_range = note_ranges[0]   # 38
-    note_offset = note_offsets[note_range]
+    # sample_freq = sample_freqs[0] # 4
+    # note_range = note_ranges[0]   # 38
+    # note_offset = note_offsets[note_range]
     chamber = False
 
     midi_stream = get_stream(fname)
-    chords_string = stream_to_chordwise(midi_stream, chamber, sample_freq, note_offset, note_range)
-    chords_string_arr = chords_string.split(" ")
-    notes_string = chord_to_notewise(chords_string_arr, sample_freq)
+
+    chords_str = []
+    notes_str = []
+
+    for sample_freq in sample_freqs:
+        for note_range in note_ranges:
+
+            chords_str.append(stream_to_chordwise(midi_stream, chamber, sample_freq, note_offsets[note_range], note_range))
+            chords_string_arr = chords_str[-1].split(" ")
+            notes_str.append(chord_to_notewise(chords_string_arr, sample_freq))
 
     # differentiate rests
-    chords_string_modified = modify_chord_rests(chords_string)
+    chords_string_modified = []
+    for c in chords_str:
+        chords_string_modified.append(modify_chord_rests(c))
 
-    return chords_string_modified, notes_string
+    return chords_string_modified, notes_str
 
 def save_stream(stream, fname, path=None):
     # returns full path to file
