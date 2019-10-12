@@ -1,0 +1,11 @@
+chordwise, nottingham dataset, 9 epochs, 0.747563 acc, n_hid=1152(default), 3 layers (default), pretrained weights: True
+epoch       lr         acc1        weights 
+1           1e-01                  frozen2         
+2           1e-03                  unfrozen3         
+3           1e-03      0.717734    unfrozen4         
+4           1e-03      0.732792    frozen5         
+5           1e-02      0.733366    frozen6         
+6           1e-02      0.740686    unfrozen7         
+7           1e-03      0.746206    unfrozen8         
+8           1e-03      0.747563    unfrozen9         
+9           1e-03      0.748488    frozen
