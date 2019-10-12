@@ -80,7 +80,6 @@ def encode_data(data_raw, merged=True):
                     fn.write(chords)
                 with open(f"{write_location}/notewise/{folder}/{fname}.txt", "w") as fn:
                     fn.write(notes)
-                break
 
 if __name__ == "__main__":
 
