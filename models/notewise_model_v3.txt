@@ -1,0 +1,4 @@
+notewise, merged datasets, 2 epochs, 0.548770 acc, n_hid=1152(default), 3 layers (default), pretrained weights: True (default), dropout_mult=1.0(default)
+epoch     lr         acc         weights
+1         1e-01      0.546817    frozen
+2         1e-03      0.548770    frozen

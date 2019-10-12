@@ -1,0 +1,8 @@
+chordwise, merged datasets, 6 epochs, 0.689880 acc, n_hid=1152(default), 3 layers (default), pretrained weights: True (default), dropout_mult=1.0(default)
+epoch     lr         acc         weights
+1         1e-01      0.430032    frozen
+2         1e-03      0.647082    unfrozen
+3         1e-03      0.673698    unfrozen
+4         1e-03      0.675347    frozen
+5         1e-02      0.687846    unfrozen
+6         1e-02      0.689880    frozen

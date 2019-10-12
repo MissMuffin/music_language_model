@@ -1,1 +1,3 @@
-notewise, nottingham dataset, 0.665312 acc, n_hid=1152(default), 3 layers (default), pretrained weights: Trueepoch    lr         acc1         1e-01        0.665312    frozen
+notewise, nottingham dataset, 0.665312 acc, n_hid=1152(default), 3 layers (default), pretrained weights: True
+epoch        lr          acc1        weights 
+1            1e-01       0.665312    frozen
