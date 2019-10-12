@@ -1,0 +1,4 @@
+This model was unfortunately eaten by a disconnect from Google Collab during 
+the download. Only two generated MIDI files remain.
+
+For the model information see the corresponding text file.
