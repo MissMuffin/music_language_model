@@ -1,6 +1,6 @@
 # music_language_model
 
-This project is based on Christine Payne's [Clara project](https://github.com/MissMuffin/music_language_model/blob/master/notebooks/implementation_encoding.ipynb).
+This project is based on Christine Payne's [Clara project](http://christinemcleavey.com/clara-a-neural-net-music-generator/).
 
 ## MIDI2Text Encoding
 A detailed explanation how the encoding works can be found in this [notebook](https://github.com/MissMuffin/music_language_model/blob/master/notebooks/implementation_encoding.ipynb).
